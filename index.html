@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Excel to Markdown</title>
+  <style>
+    #markdownResult {
+      padding: 5px;
+    }
+    
+    #markdownResult > table {
+      margin: auto;
+    }
+    
+    #markdownResult > table,
+    tr,
+    td,
+    th {
+      border: 1px solid #DDDDDD;
+      border-collapse: collapse;
+      font-weight: normal;
+      white-space: nowrap;
+    }
+    
+    td,
+    th {
+      padding: 3px;
+    }
+  </style>
+</head>
+
+<body id="tablemaker">
+  <div style="width:100%;max-width:800px;text-align:center;margin:auto;">
+    <h2 style="text-align:center;">Offline Excel to Markdown Table Convertor</h2>
+    <div id="headerColors">
+      <div style="display:inline-block;background-color:orange;width:20%!important;height:6px!important;"></div>
+      <div style="display:inline-block;background-color:cyan;width:20%;height:6px;"></div>
+      <div style="display:inline-block;background-color:green;width:20%;height:6px;"></div>
+    </div>
+    <h4 style="text-align:left;">Paste here from Excel or another delimited source (such as a CSV file) and get a markdown-ready table below.</h4>
+	<h5 style="text-align:center;"><b>Note</b>: Accepts tab-delimited and comma-delimited text.</h5>
+    <br />
+    <textarea style="width:80%;" id="pastedText" placeholder="Paste here" rows="9"></textarea>
+    <br />
+	<br />
+    <div style="text-align:left;">
+      <label><b>Choose Delimiter</b> </label>
+      <select id="selectDelimType"> 
+      <option value='auto' selected>Auto</option>
+        <option value='tab'>Tab</option>
+        <option value='comma'>Comma</option>
+        <option value='space'>Space</option>
+      </select><br />
+      <br />
+      <label>
+        <input type="checkbox" id="checkCenterText" checked /> Center-align text
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="checkBoldHeader" checked /> Bold first row
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="checkBoldFooter" /> Bold last row
+      </label>
+      <br />
+      <label>
+        <input type="checkbox" id="checkFormatNumbers" /> Format numbers
+      </label>
+      <br />
+    </div>
+    <br />
+    <div style="text-align:left;color:green;font-size:18px;font-weight:bold;display:none;" id="copySuccess">
+      Yay!
+      <br /> Press Ctr+C to copy and May the force be with you.
+    </div>
+    <div style="text-align:left;color:red;font-size:18px;font-weight:bold;display:none;" id="copyError">
+      Error!
+      <br /> Something went wrong, but still Live Long and Prosper. <br /> Vulcan Pranaam!
+    </div>
+    <div>
+      <textarea style="width:80%;" id="tableResult" rows="9"></textarea>
+    </div>
+    <br />
+    <div style="text-align:left;font-size:14px;display:none;" id="previewSuccess">
+      <strong>Preview of table</strong>
+      <br />
+    </div>
+    <br />
+    <div id="markdownResult" style="background-color:#ffffff;margin:auto;">
+    </div>
+  </div>
+  <div style="height:30px;"></div>
+  <hr>
+  <div style="text-align:left;color:#666;">
+    <p>Copyright © 2020 <a href="https://twitter.com/tushargupta"> Tushar Gupta</a>
+    </p>
+  </div>
+  <!-- Local jQuery file included, but switch the comments below to load from Google's jQuery CDN instead -->
+  <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  <script src="js/jquery-2.1.4.min.js"></script>
+  <script type="text/javascript" src="js/micromarkdown.js"></script>
+  <script src="tableMaker.js"></script>
+
+  <script src='js/spectrum.js'></script>
+  <link rel='stylesheet' href='css/spectrum.css' />
+
+</body>
+
+</html>
